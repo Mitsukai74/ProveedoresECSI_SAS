@@ -18,7 +18,7 @@ public class Usuarios implements Serializable {
 	
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
-	private int Id_user;
+	private Long Id_user;
 	private String nombre;
 	private int clave;
 	
@@ -26,10 +26,10 @@ public class Usuarios implements Serializable {
 	public String toString() {
 		return "Usuarios [Id_user=" + Id_user + ", nombre=" + nombre + ", clave=" + clave + "]";
 	}
-	public int getId_user() {
+	public Long getId_user() {
 		return Id_user;
 	}
-	public void setId_user(int id_user) {
+	public void setId_user(Long id_user) {
 		Id_user = id_user;
 	}
 	public String getNombre() {
