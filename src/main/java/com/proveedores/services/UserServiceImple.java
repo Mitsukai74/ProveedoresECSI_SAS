@@ -28,12 +28,12 @@ public class UserServiceImple implements IUsuarioService {
 
 	@Override
 	public Usuarios buscarPorId(Long id) {
-		return null;
+		return userRepository.findById(id).orElse(null);
 	}
 
 	@Override
 	public void eliminar(Long id) {
-		// TODO Auto-generated method stub
+		userRepository.deleteById(id);
 
 	}
 
