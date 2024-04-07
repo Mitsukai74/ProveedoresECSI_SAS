@@ -2,6 +2,7 @@ package com.proveedores.controller;
 
 import java.util.List;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -13,9 +14,10 @@ import com.proveedores.services.IUsuarioService;
 
 
 @Controller
-@RequestMapping("usuarios/listar")
+@RequestMapping("/usuarios")
 public class UserController {
 	
+	@Autowired
 	private IUsuarioService usuarioServicio;
 	
 	@GetMapping("/")
@@ -24,7 +26,7 @@ public class UserController {
 		
 		model.addAttribute("titulo", "Lista de clientes");
 		model.addAttribute("usuarios", listadoUsers);
-		return "usuarios/listar";
+		return "/usuarios/listar";
 	}
 	
 

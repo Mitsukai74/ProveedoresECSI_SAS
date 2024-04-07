@@ -18,19 +18,20 @@ public class Usuarios implements Serializable {
 	
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
-	private Long Id_user;
+	private Long id_user;
 	private String nombre;
 	private int clave;
 	
+	
 	@Override
 	public String toString() {
-		return "Usuarios [Id_user=" + Id_user + ", nombre=" + nombre + ", clave=" + clave + "]";
+		return "Usuarios [id_user=" + id_user + ", nombre=" + nombre + ", clave=" + clave + "]";
 	}
-	public Long getId_user() {
-		return Id_user;
+	public Long getid_user() {
+		return id_user;
 	}
-	public void setId_user(Long id_user) {
-		Id_user = id_user;
+	public void setid_user(Long id_user) {
+		this.id_user = id_user;
 	}
 	public String getNombre() {
 		return nombre;

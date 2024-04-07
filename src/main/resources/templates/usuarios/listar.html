@@ -2,21 +2,34 @@
 <html xmlns:th="http://www.thymeleaf.org">
 <head th:replace="/plantilla :: head">
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="viewport"
+	content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
 <title>Home</title>
 </head>
-<header th:replace="/plantilla :: header" >
-	
-</header>
+<header th:replace="/plantilla :: header"> </header>
 <body>
-	<div class="container">	
+	<div class="container">
 		<h1 th:text="${titulo}" class="text-center"></h1>
+	</div>
+	<div class="container">
+		<table class="table">
+			<thead class="thead-dark">
+				<tr>
+					<th scope="col">Nombre</th>
+					<th scope="col">Clave</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr th:each="usr:${usuarios}">
+					<td th:text="${usr.nombre}"></td>
+					<td th:text="${usr.clave}"></td> 
+				</tr>
+			</tbody>
+		</table>		
 		<p th:text="${usuarios}"></p>
-		
 	</div>
 
 </body>
-<footer th:replace="/plantilla :: footer ">	
-</footer>
+<footer th:replace="/plantilla :: footer "> </footer>
 </html>
