@@ -24,7 +24,7 @@ public class UserController {
 	public String listarUsuarios(Model model){
 		List<Usuarios> listadoUsers = usuarioServicio.listarTodos();
 		
-		model.addAttribute("titulo", "Lista de clientes");
+		model.addAttribute("titulo", "Lista de usuarios");
 		model.addAttribute("usuarios", listadoUsers);
 		return "/usuarios/listar";
 	}
