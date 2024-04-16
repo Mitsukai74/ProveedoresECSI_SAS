@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:replace="/plantilla :: head">
+<meta charset="UTF-8">
+<meta name="viewport"
+	content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+<title>Listado</title>
+</head>
+<header th:replace="/plantilla :: header"> </header>
+<body>
+	<div class="container">
+		<h1 th:text="${titulo}" class="text-center"></h1>
+	</div>
+	<div class="container">
+		<table class="table">
+			<thead class="thead-dark">
+				<tr>
+					<th scope="col">NIT</th>
+					<th scope="col">Cod.verificación</th>
+					<th scope="col">Razón social</th>
+					<th scope="col">Dirección</th>
+					<th scope="col">Teléfono</th>
+					<th scope="col">Código Mcipio</th>
+					<th scope="col">Código de Depto</th>
+					<th scope="col">Correo</th>
+					<th scope="col">CIIU</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr th:each="preem:${provreemb}">
+					<td th:text="${preem.id_provreem}"></td>
+					<td th:text="${preem.nit}"></td>
+					<td th:text="${preem.cod_ver}"></td>
+					<td th:text="${preem.razon}"></td>
+					<td th:text="${preem.direccion}"></td>
+					<td th:text="${preem.telefono}"></td>
+					<td th:text="${preem.cod_mun}"></td>
+					<td th:text="${preem.cod_depto}"></td>
+					<td th:text="${preem.correo}"></td>
+					<td th:text="${preem.ciiu}"></td>   
+				</tr>
+			</tbody>
+		</table>		
+		<p th:text="${provreemb}"></p>
+	</div>
+
+</body>
+<footer th:replace="/plantilla :: footer "> </footer>
+</html>
