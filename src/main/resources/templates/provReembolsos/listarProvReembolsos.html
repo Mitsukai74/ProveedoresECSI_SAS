@@ -17,19 +17,18 @@
 			<thead class="thead-dark">
 				<tr>
 					<th scope="col">NIT</th>
-					<th scope="col">Cod.verificación</th>
+					<th scope="col">Código verificación</th>
 					<th scope="col">Razón social</th>
 					<th scope="col">Dirección</th>
 					<th scope="col">Teléfono</th>
-					<th scope="col">Código Mcipio</th>
-					<th scope="col">Código de Depto</th>
+					<th scope="col">Código Municipio</th>
+					<th scope="col">Código de Departamento</th>
 					<th scope="col">Correo</th>
 					<th scope="col">CIIU</th>
 				</tr>
 			</thead>
 			<tbody>
-				<tr th:each="preem:${provreemb}">
-					<td th:text="${preem.id_provreem}"></td>
+				<tr th:each="preem:${provreemb}">					
 					<td th:text="${preem.nit}"></td>
 					<td th:text="${preem.cod_ver}"></td>
 					<td th:text="${preem.razon}"></td>
@@ -42,7 +41,7 @@
 				</tr>
 			</tbody>
 		</table>		
-		<p th:text="${provreemb}"></p>
+		<!-- <p th:text="${provreemb}"></p> -->
 	</div>
 
 </body>

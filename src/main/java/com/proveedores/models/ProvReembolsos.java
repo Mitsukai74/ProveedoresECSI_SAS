@@ -22,7 +22,7 @@ public class ProvReembolsos implements Serializable {
 	private int cod_ver;
 	private String razon;
 	private String direccion;
-	private int telefono;
+	private Long telefono;
 	private String correo;
 	private String cod_mun;
 	private String cod_depto;
@@ -64,10 +64,10 @@ public class ProvReembolsos implements Serializable {
 	public void setDireccion(String direccion) {
 		this.direccion = direccion;
 	}
-	public int getTelefono() {
+	public Long getTelefono() {
 		return telefono;
 	}
-	public void setTelefono(int telefono) {
+	public void setTelefono(Long telefono) {
 		this.telefono = telefono;
 	}
 	public String getCorreo() {

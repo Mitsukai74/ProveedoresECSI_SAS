@@ -9,6 +9,6 @@ public interface IProvreembolsosService {
 	
 	public List<ProvReembolsos> listarTodosProvReem();
 	public void guardar(ProvReembolsos provReem);
-	public ProvReembolsos buscarPorId(Long id_provreem);
+	public ProvReembolsos buscarPorId(Integer id_provreem);
 
 }

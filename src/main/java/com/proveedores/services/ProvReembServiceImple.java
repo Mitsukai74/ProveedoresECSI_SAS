@@ -26,7 +26,7 @@ public class ProvReembServiceImple implements IProvreembolsosService {
 	}
 
 	@Override
-	public ProvReembolsos buscarPorId(Long id_provreem) {
+	public ProvReembolsos buscarPorId(Integer id_provreem) {
 		
 		return provreemRepository.findById(id_provreem).orElse(null);
 	}

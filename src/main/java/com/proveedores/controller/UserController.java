@@ -29,5 +29,12 @@ public class UserController {
 		return "/usuarios/listar";
 	}
 	
+	@GetMapping("/create")
+	public String crearUser(){
+		
+		
+		return "/usuarios/formCrearUser";
+	}
+	
 
 }

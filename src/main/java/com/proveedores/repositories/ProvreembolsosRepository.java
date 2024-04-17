@@ -6,6 +6,6 @@ import org.springframework.stereotype.Repository;
 import com.proveedores.models.ProvReembolsos;
 
 @Repository
-public interface ProvreembolsosRepository extends CrudRepository<ProvReembolsos, Long> {
+public interface ProvreembolsosRepository extends CrudRepository<ProvReembolsos, Integer> {
 
 }
