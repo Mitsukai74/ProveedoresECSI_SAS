@@ -7,11 +7,13 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.proveedores.models.Usuarios;
 import com.proveedores.services.IUsuarioService;
+import com.proveedores.services.UserServiceImple;
 
 
 
@@ -38,8 +40,7 @@ public class UserController {
 		
 		model.addAttribute("titulo","Formulario: Nuevo usuario");
 		model.addAttribute("usuario",usuario);
-		
-		
+				
 		return "/usuarios/formCrearUser";
 	}
 	
@@ -47,10 +48,31 @@ public class UserController {
 	public String guardar(@ModelAttribute Usuarios usuario){
 		
 		usuarioServicio.guardar(usuario);		
+		
 		System.out.println("Cliente guardado");
 		
 		return "redirect:/usuarios/";
 	}
+	@GetMapping("/edit/{id_user}")
+	public String editarUser(@PathVariable("id_user") Long idUser, Model model){
+		
+		Usuarios usuario = usuarioServicio.buscarPorId(idUser);
+		
+		model.addAttribute("titulo","Formulario: Editar usuario");
+		model.addAttribute("usuario",usuario);
+		
+		
+		return "/usuarios/formCrearUser";
+	}
+	@GetMapping("/delete/{id_user}")
+	public String eliminarUser(@PathVariable("id_user") Long idUser){
+		
+		usuarioServicio.eliminar(idUser);
+		
+		
+		return "redirect:/usuarios/";
+	}
+	
 	
 
 }

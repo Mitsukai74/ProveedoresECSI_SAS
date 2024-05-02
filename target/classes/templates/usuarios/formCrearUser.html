@@ -16,6 +16,7 @@
 
 				<form th:action="@{/usuarios/save}" th:object="${usuario}" method="post">
 					<div class="form-group">
+						<input type="hidden" th:field="*{id_user}">
 						<label class="col-md-2" for="nombre">Digite nombre</label> <input
 							type="text" th:field="*{nombre}" class="form-control form-control-sm col-md-6"
 							id="nombre" placeholder="Nombre en mayúscula"> <small></small>
