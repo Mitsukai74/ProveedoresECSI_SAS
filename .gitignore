@@ -1,0 +1,4 @@
+#Para dejar de seguir la carpeta target
+target/
+#Y el archivo properties
+application.properties
