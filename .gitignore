@@ -2,3 +2,5 @@
 target/
 #Y el archivo properties
 application.properties
+
+target/

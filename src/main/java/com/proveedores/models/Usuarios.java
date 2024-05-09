@@ -2,6 +2,7 @@ package com.proveedores.models;
 
 import java.io.Serializable;
 
+import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -18,9 +19,11 @@ public class Usuarios implements Serializable {
 	
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
+	@Column(name="id_user")
 	private Long id_user;
+	
 	private String nombre;
-	private int clave;
+	private String clave;
 	
 	
 	@Override
@@ -39,10 +42,10 @@ public class Usuarios implements Serializable {
 	public void setNombre(String nombre) {
 		this.nombre = nombre;
 	}
-	public int getClave() {
+	public String getClave() {
 		return clave;
 	}
-	public void setClave(int clave) {
+	public void setClave(String clave) {
 		this.clave = clave;
 	}
 	

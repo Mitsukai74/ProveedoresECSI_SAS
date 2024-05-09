@@ -2,6 +2,7 @@ package com.proveedores.controller;
 
 import java.util.List;
 
+import org.slf4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -11,6 +12,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
+import com.proveedores.ProveedoresEcsiApplication;
 import com.proveedores.models.Usuarios;
 import com.proveedores.services.IUsuarioService;
 import com.proveedores.services.UserServiceImple;
@@ -54,25 +56,30 @@ public class UserController {
 		return "redirect:/usuarios/";
 	}
 	@GetMapping("/edit/{id_user}")
-	public String editarUser(@PathVariable("id_user") Long idUser, Model model){
+	public String editarUser(@PathVariable("id_user") Long id_user, Model model){
 		
-		Usuarios usuario = usuarioServicio.buscarPorId(idUser);
+		Usuarios usuario = usuarioServicio.buscarPorId(id_user);
 		
-		model.addAttribute("titulo","Formulario: Editar usuario");
+		List<Usuarios> listadoUsers = usuarioServicio.listarTodos();
+		
+		System.out.println("Lista de usuarios: " + listadoUsers);
 		model.addAttribute("usuario",usuario);
+		model.addAttribute("titulo","Formulario: Editar usuario");
 		
+		model.addAttribute("usuarios", listadoUsers);
+		
+		ProveedoresEcsiApplication provee = new ProveedoresEcsiApplication();
+		provee.LOG.info("Otraves" + listadoUsers);
 		
 		return "/usuarios/formCrearUser";
 	}
 	@GetMapping("/delete/{id_user}")
-	public String eliminarUser(@PathVariable("id_user") Long idUser){
+	public String eliminarUser(@PathVariable("id_user") Long id_user){
 		
-		usuarioServicio.eliminar(idUser);
+		usuarioServicio.eliminar(id_user);
 		
 		
 		return "redirect:/usuarios/";
-	}
-	
-	
+	}	
 
 }
