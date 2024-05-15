@@ -2,7 +2,7 @@ package com.proveedores.controller;
 
 import java.util.List;
 
-import org.slf4j.Logger;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -12,10 +12,9 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
-import com.proveedores.ProveedoresEcsiApplication;
+
 import com.proveedores.models.Usuarios;
 import com.proveedores.services.IUsuarioService;
-import com.proveedores.services.UserServiceImple;
 
 
 
@@ -55,6 +54,7 @@ public class UserController {
 		
 		return "redirect:/usuarios/";
 	}
+	
 	@GetMapping("/edit/{id_user}")
 	public String editarUser(@PathVariable("id_user") Long id_user, Model model){
 		
@@ -68,8 +68,6 @@ public class UserController {
 		
 		model.addAttribute("usuarios", listadoUsers);
 		
-		ProveedoresEcsiApplication provee = new ProveedoresEcsiApplication();
-		provee.LOG.info("Otraves" + listadoUsers);
 		
 		return "/usuarios/formCrearUser";
 	}

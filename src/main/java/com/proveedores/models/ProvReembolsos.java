@@ -20,6 +20,7 @@ public class ProvReembolsos implements Serializable {
 	private int id_provreem;
 	private int nit;
 	private int cod_ver;
+	private int cod_ecsi;	
 	private String razon;
 	private String direccion;
 	private Long telefono;
@@ -33,9 +34,9 @@ public class ProvReembolsos implements Serializable {
 	}
 	@Override
 	public String toString() {
-		return "ProvReembolsos [id_provreem=" + id_provreem + ", nit=" + nit + ", cod_ver=" + cod_ver + ", razon="
-				+ razon + ", direccion=" + direccion + ", telefono=" + telefono + ", correo=" + correo + ", cod_mun="
-				+ cod_mun + ", cod_depto=" + cod_depto + ", ciiu=" + ciiu + "]";
+		return "ProvReembolsos [id_provreem=" + id_provreem + ", nit=" + nit + ", cod_ver=" + cod_ver + ", cod_ecsi="
+				+ cod_ecsi + ", razon=" + razon + ", direccion=" + direccion + ", telefono=" + telefono + ", correo="
+				+ correo + ", cod_mun=" + cod_mun + ", cod_depto=" + cod_depto + ", ciiu=" + ciiu + "]";
 	}
 	public void setId_provreem(int id_provreem) {
 		this.id_provreem = id_provreem;
@@ -93,6 +94,12 @@ public class ProvReembolsos implements Serializable {
 	}
 	public void setCiiu(int ciiu) {
 		this.ciiu = ciiu;
+	}
+	public int getCod_ecsi() {
+		return cod_ecsi;
+	}
+	public void setCod_ecsi(int cod_ecsi) {
+		this.cod_ecsi = cod_ecsi;
 	}
 
 }

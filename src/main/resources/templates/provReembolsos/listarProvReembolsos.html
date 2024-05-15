@@ -13,35 +13,37 @@
 		<h1 th:text="${titulo}" class="text-center"></h1>
 	</div>
 	<div class="container">
-		<table class="table">
+		<table class="table row d-flex justify-content-center">
 			<thead class="thead-dark">
 				<tr>
 					<th scope="col">NIT</th>
-					<th scope="col">Código verificación</th>
+					<th scope="col">Código verificaciòn</th>
+					<th scope="col">Código ECSI</th>
 					<th scope="col">Razón social</th>
 					<th scope="col">Dirección</th>
 					<th scope="col">Teléfono</th>
-					<th scope="col">Código Municipio</th>
-					<th scope="col">Código de Departamento</th>
+					<th scope="col">Código mcpio</th>
+					<th scope="col">Código de depto</th>
 					<th scope="col">Correo</th>
 					<th scope="col">CIIU</th>
+					<th scope="col">Editar</th>					
 				</tr>
 			</thead>
 			<tbody>
 				<tr th:each="preem:${provreemb}">					
 					<td th:text="${preem.nit}"></td>
 					<td th:text="${preem.cod_ver}"></td>
+					<td th:text="${preem.cod_ecsi}"></td>
 					<td th:text="${preem.razon}"></td>
 					<td th:text="${preem.direccion}"></td>
 					<td th:text="${preem.telefono}"></td>
 					<td th:text="${preem.cod_mun}"></td>
 					<td th:text="${preem.cod_depto}"></td>
 					<td th:text="${preem.correo}"></td>
-					<td th:text="${preem.ciiu}"></td>   
+					<td th:text="${preem.ciiu}"></td>					   
 				</tr>
 			</tbody>
 		</table>		
-		<!-- <p th:text="${provreemb}"></p> -->
 	</div>
 
 </body>
