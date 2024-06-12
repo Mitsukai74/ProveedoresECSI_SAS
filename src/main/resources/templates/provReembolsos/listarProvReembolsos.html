@@ -13,11 +13,12 @@
 		<h1 th:text="${titulo}" class="text-center"></h1>
 	</div>
 	<div class="container">
-		<table class="table row d-flex justify-content-center">
+		<a class="btn btn-primary btn-sm" th:href="@{/provReembolsos/create}" th:text="'Nuevo proveedor'" title="Crear nuevo proveedor"></a>
+		<table class="table">
 			<thead class="thead-dark">
 				<tr>
 					<th scope="col">NIT</th>
-					<th scope="col">Código verificaciòn</th>
+					<th scope="col">Código verificación</th>
 					<th scope="col">Código ECSI</th>
 					<th scope="col">Razón social</th>
 					<th scope="col">Dirección</th>
@@ -40,7 +41,13 @@
 					<td th:text="${preem.cod_mun}"></td>
 					<td th:text="${preem.cod_depto}"></td>
 					<td th:text="${preem.correo}"></td>
-					<td th:text="${preem.ciiu}"></td>					   
+					<td th:text="${preem.ciiu}"></td>
+					<td>						
+						<a class="btn btn-success btn-sm" th:text="'Editar'" title="Editar proveedor"
+							th:href="@{/provReembolsos/edit/} + ${preem.id_provreem}"
+							onclick="return confirm('¿Está seguro de editar el proveedor?')">
+						</a>
+					</td>					   
 				</tr>
 			</tbody>
 		</table>		

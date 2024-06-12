@@ -2,6 +2,9 @@ package com.proveedores.models;
 
 import java.io.Serializable;
 
+import org.springframework.lang.NonNull;
+
+import jakarta.annotation.Nonnull;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -18,12 +21,15 @@ public class ProvReembolsos implements Serializable {
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	private int id_provreem;
+	@Nonnull
 	private int nit;
+	@Nonnull
 	private int cod_ver;
-	private int cod_ecsi;	
+	@Nonnull
+	private int cod_ecsi;
 	private String razon;
 	private String direccion;
-	private Long telefono;
+	private Long telefono;	
 	private String correo;
 	private String cod_mun;
 	private String cod_depto;
