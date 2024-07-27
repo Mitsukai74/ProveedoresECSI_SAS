@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:replace="/plantilla :: head">
+<meta charset="UTF-8">
+<title>Búsquedas</title>
+</head>
+<body>
+<header th:replace="/plantilla :: header">
+</header>
+<br>
+<section class="btn-group" role="group">
+<!-- Botón de búsqueda por nombre -->
+<div>
+	<!-- Button trigger modal -->
+<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModalLong">
+  Buscar por nombre de razón social
+</button>
+
+<!-- Modal -->
+<div class="modal fade" id="exampleModalLong" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">      
+      <div class="modal-body">
+        <h3>Digite el nombre:</h3>
+        <input class="form-control" type="text" placeholder="En mayúsculas">
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
+        <button type="button" class="btn btn-primary">Buscar</button>
+      </div>
+    </div>
+  </div>
+</div>
+</div>
+
+<!-- Botón de búsqueda por NIT -->
+<div>
+	<!-- Button trigger modal -->
+<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModalLong">
+  Buscar por número de NIT
+</button>
+
+<!-- Modal -->
+<div class="modal fade" id="exampleModalLong" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">      
+      <div class="modal-body">
+        <h4>Digite el NIT:</h4>
+        <input class="form-control" type="text" placeholder="Sin dígito de verificación">
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
+        <button type="button" class="btn btn-primary">Buscar</button>
+      </div>
+    </div>
+  </div>
+</div>
+</div>
+<!-- Botón de búsqueda por código ECSI -->
+<div>
+	<!-- Button trigger modal -->
+<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModalLong">
+  Buscar por código ECSI
+</button>
+
+<!-- Modal -->
+<div class="modal fade" id="exampleModalLong" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">      
+      <div class="modal-body">
+        <h3>Digite el código de proveedor:</h3>
+        <input class="form-control" type="text" placeholder="Solo números">
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
+        <button type="button" class="btn btn-primary">Buscar</button>
+      </div>
+    </div>
+  </div>
+</div>
+</div>
+</section>
+
+<footer th:replace="/plantilla :: footer"></footer>
+
+</body>
+</html>

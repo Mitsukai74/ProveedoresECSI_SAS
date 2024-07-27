@@ -16,5 +16,9 @@ public class Principal {
 	String login() {
 		return "login";
 	}
+	@GetMapping("busquedas")
+	String busqueda() {
+		return"busquedas";
+	}
 
 }
