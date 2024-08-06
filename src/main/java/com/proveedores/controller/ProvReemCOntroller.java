@@ -2,6 +2,7 @@ package com.proveedores.controller;
 
 import java.util.List;
 
+import org.hibernate.query.Page;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -10,8 +11,10 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import com.proveedores.models.ProvReembolsos;
+import com.proveedores.repositories.ProvreembolsosRepository;
 import com.proveedores.services.IProvreembolsosService;
 
 @Controller
@@ -20,6 +23,7 @@ public class ProvReemCOntroller {
 	
 	@Autowired
 	private IProvreembolsosService iprovreembolsoService;
+	private Model attribute;
 	
 	@GetMapping("/")
 	public String listarprovReembolsos(Model model) {
@@ -57,5 +61,7 @@ public class ProvReemCOntroller {
 				
 		return "/provReembolsos/CrearProv";
 	}
+	//metodo en el repositorio de buscar por razón social
+	
 
 }

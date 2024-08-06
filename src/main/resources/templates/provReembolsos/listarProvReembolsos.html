@@ -13,8 +13,26 @@
 		<h1 th:text="${titulo}" class="text-center"></h1>
 	</div>
 	<div class="container">
-		<a class="btn btn-primary btn-sm" th:href="@{/provReembolsos/create}" th:text="'Nuevo proveedor'" title="Crear nuevo proveedor"></a>
-		<table class="table row justify-content-center">
+		<a class="btn btn-primary btn-sm" th:href="@{/provReembolsos/create}"
+			th:text="'Nuevo proveedor'" title="Crear nuevo proveedor"></a>
+		<form action="" method="">
+			<div class="row">
+				<div class="input-group mb-3 col-lg-3 col-md-4">
+					<button class="btn btn-outline-primary" type="submit"
+						id="button-addon1">
+						<i class="bi bi-search"></i>
+					</button>
+					<input type="text" class="form-control"
+						placeholder="Buscar por nombre">
+				</div>
+
+			</div>
+
+		</form>
+
+
+	</div>
+	<table class="table row justify-content-center">
 			<thead class="thead-dark text-center">
 				<tr>
 					<th scope="col">NIT</th>
@@ -27,11 +45,11 @@
 					<th scope="col">Código de depto</th>
 					<th scope="col">Correo</th>
 					<th scope="col">CIIU</th>
-					<th scope="col">Editar</th>					
+					<th scope="col">Editar</th>
 				</tr>
 			</thead>
 			<tbody>
-				<tr th:each="preem:${provreemb}">					
+				<tr th:each="preem:${provreemb}">
 					<td th:text="${preem.nit}"></td>
 					<td th:text="${preem.cod_ver}"></td>
 					<td th:text="${preem.cod_ecsi}"></td>
@@ -42,15 +60,14 @@
 					<td th:text="${preem.cod_depto}"></td>
 					<td th:text="${preem.correo}"></td>
 					<td th:text="${preem.ciiu}"></td>
-					<td>						
-						<a class="btn btn-success btn-sm" th:text="'Editar'" title="Editar proveedor"
-							th:href="@{/provReembolsos/edit/} + ${preem.id_provreem}"
-							onclick="return confirm('¿Está seguro de editar el proveedor?')">
-						</a>
-					</td>					   
+					<td><a class="btn btn-success btn-sm" th:text="'Editar'"
+						title="Editar proveedor"
+						th:href="@{/provReembolsos/edit/} + ${preem.id_provreem}"
+						onclick="return confirm('¿Está seguro de editar el proveedor?')">
+					</a></td>
 				</tr>
 			</tbody>
-		</table>		
+		</table>
 	</div>
 
 </body>
