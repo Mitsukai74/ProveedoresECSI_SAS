@@ -2,8 +2,10 @@ package com.proveedores.controller;
 
 import java.util.List;
 
-import org.hibernate.query.Page;
+
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -62,6 +64,13 @@ public class ProvReemCOntroller {
 		return "/provReembolsos/CrearProv";
 	}
 	//metodo en el repositorio de buscar por razón social
+	@GetMapping
+	public String buscarProveedores(Pageable pageable,Model model, @RequestParam(required = false)String busqueda) {
+		
+		Page<ProvReembolsos> proveedorPage = (Page<ProvReembolsos>) iprovreembolsoService.buscarPorRs(pageable);
+		model.addAttribute("proveedorPage",proveedorPage);
+		
+		return "busquedas";
+	}
 	
-
 }

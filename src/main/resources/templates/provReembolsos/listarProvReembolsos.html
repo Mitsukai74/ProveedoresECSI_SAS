@@ -12,10 +12,10 @@
 	<div class="container">
 		<h1 th:text="${titulo}" class="text-center"></h1>
 	</div>
-	<div class="container">
-		<a class="btn btn-primary btn-sm" th:href="@{/provReembolsos/create}"
-			th:text="'Nuevo proveedor'" title="Crear nuevo proveedor"></a>
+	<div>
 		<form action="" method="">
+			<a class="btn btn-primary btn-sm" th:href="@{/provReembolsos/create}"
+				th:text="'Nuevo proveedor'" title="Crear nuevo proveedor"></a>
 			<div class="row">
 				<div class="input-group mb-3 col-lg-3 col-md-4">
 					<button class="btn btn-outline-primary" type="submit"
@@ -25,14 +25,11 @@
 					<input type="text" class="form-control"
 						placeholder="Buscar por nombre">
 				</div>
-
 			</div>
-
 		</form>
 
-
 	</div>
-	<table class="table row justify-content-center">
+	<table class="table">
 			<thead class="thead-dark text-center">
 				<tr>
 					<th scope="col">NIT</th>
@@ -67,8 +64,7 @@
 					</a></td>
 				</tr>
 			</tbody>
-		</table>
-	</div>
+		</table>	
 
 </body>
 <footer th:replace="/plantilla :: footer "> </footer>

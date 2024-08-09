@@ -2,12 +2,13 @@ package com.proveedores.services;
 
 import java.util.List;
 
-import org.hibernate.query.Page;
+
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
 import com.proveedores.models.ProvReembolsos;
-import com.proveedores.models.Usuarios;
+
 import com.proveedores.repositories.ProvreembolsosRepository;
 
 @Service
@@ -31,6 +32,13 @@ public class ProvReembServiceImple implements IProvreembolsosService {
 		
 		return provreemRepository.findById(id_provreem).orElse(null);
 	}
+
+	@Override
+	public ProvReembolsos buscarPorRs(Pageable pageable) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
 	
 	
 
