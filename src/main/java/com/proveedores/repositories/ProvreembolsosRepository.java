@@ -13,6 +13,6 @@ import com.proveedores.models.ProvReembolsos;
 
 @Repository
 public interface ProvreembolsosRepository extends CrudRepository<ProvReembolsos, Integer> {
-	Page<ProvReembolsos> findByRazonContaining(String busqueda, Pageable pageable);	
+	Page<ProvReembolsos> findByRazonContaining(String razon, Pageable pageable);	
 
 }

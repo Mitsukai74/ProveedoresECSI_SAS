@@ -36,40 +36,49 @@
 			</div>
 		</div>		
 	</section> -->
-	
-	<table class="table">
-			<thead class="thead-dark text-center">
-				<tr>
-					<th scope="col">NIT</th>
-					<th scope="col">Código verificación</th>
-					<th scope="col">Código ECSI</th>
-					<th scope="col">Razón social</th>
-					<th scope="col">Dirección</th>
-					<th scope="col">Teléfono</th>
-					<th scope="col">Código mcpio</th>
-					<th scope="col">Código de depto</th>
-					<th scope="col">Correo</th>
-					<th scope="col">CIIU</th>
-					<th scope="col">Editar</th>
-				</tr>
-			</thead>
-			<tbody>
-				<tr th:each="busqProveedor : ${proveedorPage}" th:object="${ProvReembolsos}">
-					<td th:text="*{nit}"></td>
-					<td th:text="*{cod_ver}"></td>
-					<td th:text="*{nit}"></td>
-					<td th:text="*{cod_ecsi}"></td>
-					<td th:text="*{razon}"></td>
-					<td th:text="*{direccion}"></td>
-					<td th:text="*{telefono}"></td>
-					<td th:text="*{cod_mun}"></td>
-					<td th:text="*{cod_depto}"></td>
-					<td th:text="*{ciiu}"></td>					
-				</tr>
-			</tbody>
-		</table>
-	
 
+	<table class="table">
+		<thead class="thead-dark text-center">
+			<tr>
+				<th scope="col">NIT</th>
+				<th scope="col">Código verificación</th>
+				<th scope="col">Código ECSI</th>
+				<th scope="col">Razón social</th>
+				<th scope="col">Dirección</th>
+				<th scope="col">Teléfono</th>
+				<th scope="col">Código mcpio</th>
+				<th scope="col">Código de depto</th>
+				<th scope="col">Correo</th>
+				<th scope="col">CIIU</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr th:each="proveedor : ${proveedorPage.content}">
+				<td th:text="${proveedor.nit}"></td>
+				<td th:text="${proveedor.cod_ver}"></td>
+				<td th:text="${proveedor.cod_ecsi}"></td>
+				<td th:text="${proveedor.razon}"></td>
+				<td th:text="${proveedor.direccion}"></td>
+				<td th:text="${proveedor.telefono}"></td>
+				<td th:text="${proveedor.cod_mun}"></td>
+				<td th:text="${proveedor.cod_depto}"></td>
+				<td th:text="${proveedor.correo}"></td>
+				<td th:text="${proveedor.ciiu}"></td>
+			</tr>
+		</tbody>
+	</table>
+
+	<div class="row">
+		<div class="col-sm-6">
+			<div sd:pagination-summary=""></div>
+		</div>
+		<div class="col-sm-6">
+			<nav class="pull-right">
+				<ul class="pagination" sd:pagination="full">
+				</ul>
+			</nav>
+		</div>
+	</div>	
 	<footer th:replace="/plantilla :: footer"></footer>
 
 </body>

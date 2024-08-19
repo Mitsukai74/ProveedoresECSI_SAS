@@ -64,13 +64,18 @@ public class ProvReemCOntroller {
 		return "/provReembolsos/CrearProv";
 	}
 	//metodo en el repositorio de buscar por razón social
-	@GetMapping
+	@GetMapping("/buscar")
 	public String buscarProveedores(Pageable pageable,Model model, @RequestParam(required = false)String busqueda) {
 		
-		Page<ProvReembolsos> proveedorPage = (Page<ProvReembolsos>) iprovreembolsoService.buscarPorRs(pageable);
+		Page<ProvReembolsos> proveedorPage = null;
+		if (busqueda != null && busqueda.trim().length() > 0) {
+			proveedorPage = iprovreembolsoService.buscarPorRs(busqueda, pageable);
+		}else {
+	        proveedorPage = Page.empty(); // Página vacía si no hay búsqueda
+	    }		
 		model.addAttribute("proveedorPage",proveedorPage);
-		
-		return "busquedas";
+				
+		return "provReembolsos/busquedas";
 	}
 	
 }
