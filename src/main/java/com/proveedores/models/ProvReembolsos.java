@@ -2,7 +2,6 @@ package com.proveedores.models;
 
 import java.io.Serializable;
 
-import org.springframework.lang.NonNull;
 
 import jakarta.annotation.Nonnull;
 import jakarta.persistence.Entity;
@@ -10,6 +9,9 @@ import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.Table;
+import jakarta.validation.constraints.Email;
+import jakarta.validation.constraints.NotEmpty;
+import jakarta.validation.constraints.NotNull;
 
 @Entity
 @Table(name="prov_reembolsos")
@@ -21,19 +23,27 @@ public class ProvReembolsos implements Serializable {
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	private int id_provreem;
-	@Nonnull
-	private int nit;
-	@Nonnull
-	private int cod_ver;
-	@Nonnull
-	private int cod_ecsi;
+	
+	@NotNull(message="El número del NIT es obligatorio")
+	private Integer nit;
+	@NotNull
+	private Integer cod_ver;
+	@NotNull
+	private Integer cod_ecsi;
+	@NotEmpty
 	private String razon;
+	@NotEmpty
 	private String direccion;
-	private Long telefono;	
+	@NotNull
+	private Long telefono;
+	@Email
 	private String correo;
+	@NotEmpty
 	private String cod_mun;
+	@NotEmpty
 	private String cod_depto;
-	private int ciiu;
+	@NotNull
+	private Integer ciiu;
 	
 	public int getId_provreem() {
 		return id_provreem;
@@ -47,16 +57,16 @@ public class ProvReembolsos implements Serializable {
 	public void setId_provreem(int id_provreem) {
 		this.id_provreem = id_provreem;
 	}
-	public int getNit() {
+	public Integer getNit() {
 		return nit;
 	}
-	public void setNit(int nit) {
+	public void setNit(Integer nit) {
 		this.nit = nit;
 	}
-	public int getCod_ver() {
+	public Integer getCod_ver() {
 		return cod_ver;
 	}
-	public void setCod_ver(int cod_ver) {
+	public void setCod_ver(Integer cod_ver) {
 		this.cod_ver = cod_ver;
 	}
 	public String getRazon() {
@@ -95,16 +105,16 @@ public class ProvReembolsos implements Serializable {
 	public void setCod_depto(String cod_depto) {
 		this.cod_depto = cod_depto;
 	}
-	public int getCiiu() {
+	public Integer getCiiu() {
 		return ciiu;
 	}
-	public void setCiiu(int ciiu) {
+	public void setCiiu(Integer ciiu) {
 		this.ciiu = ciiu;
 	}
-	public int getCod_ecsi() {
+	public Integer getCod_ecsi() {
 		return cod_ecsi;
 	}
-	public void setCod_ecsi(int cod_ecsi) {
+	public void setCod_ecsi(Integer cod_ecsi) {
 		this.cod_ecsi = cod_ecsi;
 	}
 

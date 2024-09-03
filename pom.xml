@@ -59,13 +59,17 @@
     		<artifactId>poi-ooxml</artifactId>
     		<version>5.2.5</version>
 		</dependency>
-		
+		<!--Dependencia para la paginación -->
 		<dependency>
 			<groupId>io.github.jpenren</groupId>
 			<artifactId>thymeleaf-spring-data-dialect</artifactId>
 			<version>3.6.0</version>
 		</dependency>
-						
+		<!--Dependencia con las validaciones en los formularios -->
+		<dependency> 
+    		<groupId>org.springframework.boot</groupId> 
+    		<artifactId>spring-boot-starter-validation</artifactId> 
+		</dependency>				
 	</dependencies>
 
 	<build>

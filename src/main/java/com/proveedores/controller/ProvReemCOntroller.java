@@ -8,6 +8,7 @@ import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -19,13 +20,15 @@ import com.proveedores.models.ProvReembolsos;
 import com.proveedores.repositories.ProvreembolsosRepository;
 import com.proveedores.services.IProvreembolsosService;
 
+import jakarta.validation.Valid;
+
 @Controller
 @RequestMapping("/provReembolsos")
 public class ProvReemCOntroller {
 	
 	@Autowired
 	private IProvreembolsosService iprovreembolsoService;
-	private Model attribute;
+	
 	
 	@GetMapping("/")
 	public String listarprovReembolsos(Model model) {
@@ -47,7 +50,14 @@ public class ProvReemCOntroller {
 		return "/provReembolsos/CrearProv";
 	}
 	@PostMapping("/save")
-	public String guardar(@ModelAttribute ProvReembolsos proveedor){
+	public String guardar(@Valid @ModelAttribute ProvReembolsos proveedor,BindingResult resultado,Model modelo){
+		if (resultado.hasErrors()) {
+						
+			modelo.addAttribute("titulo","Formulario de creación de proveedores");
+			modelo.addAttribute("proveedor",proveedor);
+					
+			return "/provReembolsos/CrearProv";
+		}
 		
 		iprovreembolsoService.guardar(proveedor);		
 		

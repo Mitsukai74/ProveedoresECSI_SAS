@@ -14,10 +14,15 @@
 			<div class="card-body">
 				<form th:action="@{/provReembolsos/save}" th:object="${proveedor}" method="post">
 					<div class="form-group row">
-						<input type="hidden" th:field="*{id_provreem}">
-						<label class="col-md-4 font-weight-bold" for="nit">Digite NIT</label> <input type="number" th:field="*{nit}"
-							class="form-control form-control-sm col-md-6" id="nit"
-							placeholder="Digite solo nùmeros"> <small></small>
+						<input type="hidden" th:field="*{id_provreem}"> <label
+							class="col-md-4" for="nit">Digite NIT</label> <input
+							th:field="*{nit}" class="form-control form-control-sm col-md-6"
+							id="nit" placeholder="Digite solo nùmeros" /> <small
+							class="form-text text-danger" th:if="${#fields.hasErrors('nit')}"
+							th:errors="*{nit}"> </small>
+						<ul th:if="${#fields.hasErrors()}" class="text-danger">
+							<li th:each="err : ${#fields.errors()}" th:text="${err}">Error</li>
+						</ul>
 					</div>
 					<div class="form-group row">
 						<label class="col-md-4" for="cod_ver">Código de verificación</label> <input
@@ -51,17 +56,18 @@
 					</div>
 					<div class="form-group row">
 						<label class="col-md-4" for="cod_mun">Código de municipio</label> <input
-							type="text" th:field="*{cod_mun}" class="form-control form-control-sm col-md-6"
+							type="number" th:field="*{cod_mun}" class="form-control form-control-sm col-md-6"
 							id="cod_mun" placeholder=""> <small></small>
 					</div>
 					<div class="form-group row">
-						<label class="col-md-4" for="cod_depto">Código de departamento</label> <input
-							type="text" th:field="*{cod_depto}" class="form-control form-control-sm col-md-6"
-							id="cod_depto" placeholder=""> <small></small>
+						<label class="col-md-4" for="cod_depto">Código de departamento</label>
+						 <input type="number" th:field="*{cod_depto}"
+						  class="form-control form-control-sm col-md-6" id="cod_depto"
+						   placeholder=""> <small></small>
 					</div>
 					<div class="form-group row">
-						<label class="col-md-4" for="ciiu">Código de actividad
-							económica</label> <input type="number" th:field="*{ciiu}"
+						<label class="col-md-4" for="ciiu">Código de actividad económica</label>
+						 <input type="number" th:field="*{ciiu}"
 							class="form-control form-control-sm col-md-6" id="ciiu"
 							placeholder=""> <small></small>
 					</div>
