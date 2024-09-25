@@ -19,10 +19,7 @@
 							th:field="*{nit}" class="form-control form-control-sm col-md-6"
 							id="nit" placeholder="Digite solo nùmeros" /> <small
 							class="form-text text-danger" th:if="${#fields.hasErrors('nit')}"
-							th:errors="*{nit}"> </small>
-						<ul th:if="${#fields.hasErrors()}" class="text-danger">
-							<li th:each="err : ${#fields.errors()}" th:text="${err}">Error</li>
-						</ul>
+							th:errors="*{nit}"> </small>						
 					</div>
 					<div class="form-group row">
 						<label class="col-md-4" for="cod_ver">Código de verificación</label> <input

@@ -6,6 +6,7 @@ import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.ComponentScan;
 import org.springframework.validation.beanvalidation.LocalValidatorFactoryBean;
 import org.thymeleaf.dialect.springdata.SpringDataDialect;
 
@@ -20,7 +21,7 @@ public class ProveedoresEcsiApplication implements CommandLineRunner{
 
 	@Override
 	public void run(String... args) throws Exception {
-		//LOG.info("Holisssssssssssssssss");
+		
 		
 	}
 	
@@ -28,9 +29,11 @@ public class ProveedoresEcsiApplication implements CommandLineRunner{
     public SpringDataDialect springDataDialect() {
         return new SpringDataDialect();
     }
-    @Bean
-    public LocalValidatorFactoryBean validator() {
-        return new LocalValidatorFactoryBean();
-    }
+	
+	/*
+	 * @Bean public LocalValidatorFactoryBean validator() { return new
+	 * LocalValidatorFactoryBean(); }
+	 */
+	 
 
 }

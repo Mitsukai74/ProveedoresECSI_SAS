@@ -18,12 +18,18 @@
 					<div class="form-group">
 						<input type="hidden" th:field="*{id_user}">
 						<label class="col-md-2" for="nombre">Digite nombre</label> <input
-							type="text" th:field="*{nombre}" class="form-control form-control-sm col-md-6"
-							id="nombre" placeholder="Nombre en mayúscula"> <small></small>
+							type="text" th:field="*{name}" class="form-control form-control-sm col-md-6"
+							id="nombre" placeholder="Nombre en mayúscula"> <small></small>							
 					</div>
 					<div class="form-group">
+						<label class="col-md-2" for="clave">Digite el correo</label> <input
+							type="email" th:field="*{email}" class="form-control form-control-sm col-md-6"
+							id="correo" placeholder="Correo institucional de ECSI"> <small></small>
+					</div>
+					
+					<div class="form-group">
 						<label class="col-md-2" for="clave">Digite la clave</label> <input
-							type="password" th:field="*{clave}" class="form-control form-control-sm col-md-6"
+							type="password" th:field="*{password}" class="form-control form-control-sm col-md-6"
 							id="clave" placeholder="Clave numérica de 4 dígitos"> <small></small>
 					</div>
 					<div class="card-footer">

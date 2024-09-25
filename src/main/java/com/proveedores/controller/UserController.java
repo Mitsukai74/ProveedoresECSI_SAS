@@ -11,9 +11,10 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
-
+import org.springframework.web.bind.annotation.RequestParam;
 
 import com.proveedores.models.Usuarios;
+import com.proveedores.repositories.UserRepository;
 import com.proveedores.services.IUsuarioService;
 
 
@@ -23,7 +24,7 @@ import com.proveedores.services.IUsuarioService;
 public class UserController {
 	
 	@Autowired
-	private IUsuarioService usuarioServicio;
+	private IUsuarioService usuarioServicio;	
 	
 	@GetMapping("/")
 	public String listarUsuarios(Model model){
@@ -31,8 +32,9 @@ public class UserController {
 		
 		model.addAttribute("titulo", "Lista de usuarios");
 		model.addAttribute("usuarios", listadoUsers);
-		return "/usuarios/listar";
+		return "usuarios/listar";
 	}
+	
 	
 	@GetMapping("/create")
 	public String crearUser(Model model){
@@ -50,7 +52,7 @@ public class UserController {
 		
 		usuarioServicio.guardar(usuario);		
 		
-		System.out.println("Cliente guardado");
+		System.out.println("Usuario guardado");
 		
 		return "redirect:/usuarios/";
 	}
@@ -74,10 +76,11 @@ public class UserController {
 	@GetMapping("/delete/{id_user}")
 	public String eliminarUser(@PathVariable("id_user") Long id_user){
 		
-		usuarioServicio.eliminar(id_user);
-		
+		usuarioServicio.eliminar(id_user);		
 		
 		return "redirect:/usuarios/";
-	}	
+	}
+	
+	
 
 }

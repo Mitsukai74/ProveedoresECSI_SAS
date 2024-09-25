@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
@@ -50,13 +51,15 @@ public class ProvReemCOntroller {
 		return "/provReembolsos/CrearProv";
 	}
 	@PostMapping("/save")
-	public String guardar(@Valid @ModelAttribute ProvReembolsos proveedor,BindingResult resultado,Model modelo){
+	public String guardar(@ModelAttribute @Valid ProvReembolsos proveedor,BindingResult resultado,Model modelo){
 		if (resultado.hasErrors()) {
 						
 			modelo.addAttribute("titulo","Formulario de creación de proveedores");
 			modelo.addAttribute("proveedor",proveedor);
-					
-			return "/provReembolsos/CrearProv";
+			
+			System.out.print("HUBO ERRORESSSSSSSSSSSSSSSSSSSSSSSSSSS");
+			//return "/provReembolsos/CrearProv";
+			
 		}
 		
 		iprovreembolsoService.guardar(proveedor);		

@@ -20,30 +20,32 @@
 				<tr>
 					<!-- <th scope="col">Id</th> -->			
 					<th scope="col">Nombre</th>
+					<th scope="col">Correo</th>
 					<th scope="col">Clave</th>
-					<th scope="col">Editar</th>
-					<th scope="col">Eliminar</th>
+					<!--<th scope="col">Editar</th>
+					 <th scope="col">Eliminar</th> -->
 				</tr>
 			</thead>
 			<tbody>
 				<tr th:each="usr:${usuarios}">
-					<!-- <td scope="row" th:text="${usr.id_user}"></td> -->									
+													
 					<td th:text="${usr.nombre}"></td>
-					<td th:text="${usr.clave}"></td>
-					<td>
+					<td th:text="${usr.correo}"></td>
+					<td th:text="${usr.password}"></td>
+					<!--<td>
 						<a class="btn btn-success btn-sm" th:href="@{/usuarios/edit/}"
 						th:text="'Editar'" title="Modificar usuario"></a>
-						<!-- <a class="btn btn-success btn-sm" th:href="@{/usuarios/edit/{id}(id=${usr.id_user})}"
-						 th:text="'Editar'" title="Editar usuario"></a> -->
+						 <a class="btn btn-success btn-sm" th:href="@{/usuarios/edit/{id}(id=${usr.id_user})}"
+						 th:text="'Editar'" title="Editar usuario"></a> 
 					</td>
-					<td>
+					 <td>
 						<a class="btn btn-danger btn-sm" th:href="@{/usuarios/delete/}"
 						th:text="'Eliminar'" title="Borrar usuario"></a>
-					</td>
+					</td> --> 
 				</tr>
 			</tbody>
 		</table>
-		<p th:text="${usuarios}"></p>
+		<!-- <p th:text="${usuarios}"></p> -->
 	</div>
 
 </body>
