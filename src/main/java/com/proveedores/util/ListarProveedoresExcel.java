@@ -23,6 +23,7 @@ public class ListarProveedoresExcel extends AbstractXlsView {
 			HttpServletResponse response) throws Exception {
 		//Creando el archivo con la respectiva ruta	
 		response.setHeader("Content-Disposition", "attachment; filename=\"listado_prov.xls\"");
+		response.setContentType("application/vnd.openxmlformats-officedocument.spreadsheetml.sheet");
 		//Creando la hoja de cálculo
 		Sheet hoja = workbook.createSheet("Provedores");
 		//Creando la fila con los títulos de la información

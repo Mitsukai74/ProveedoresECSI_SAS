@@ -11,7 +11,7 @@
 <body>	
 	<h1 class="text-center">Gestión de provedores para ECSI SAS</h1>
 	<div class="mx-auto col-12 col-md-8">
-	<img src="/images/logonew.jpg" class="img-fluid" alt="...">		
+	<img src="/images/logoNuevo.jpg" class="mx-auto d-block" alt="...">		
 		<div id="carouselExampleControls" class="carousel slide"
 			data-ride="carousel">			
 			<div class="carousel-inner">
@@ -23,6 +23,9 @@
 				</div>
 				<div class="carousel-item">
 					<img src="/images/ppal.jpg" class="d-block w-100" alt="...">
+				</div>
+				<div class="carousel-item">
+					<img src="/images/imaPl4.png" class="d-block w-100" alt="...">
 				</div>
 			</div>
 			<button class="carousel-control-prev" type="button"
@@ -43,18 +46,66 @@
 		<div>
 			<p><h4>Siga los siguietes pasos para sacarle provecho a la
 				aplicación:</h4></p>
-
-			<ul class="list-group">
-				<li class="list-group-item active">Ingreso de credenciales</li>
-				<li class="list-group-item">Visualizar listado de proveedores</li>
-				<li class="list-group-item">Buscar proveedores por distintos criterios</li>
-				<li class="list-group-item">Descarga de reportes</li>				
-			</ul>
-		</div>
+				<br>
+				<!-- Arranca el acordeón de información: -->
+			<div id="accordion">
+			  <div class="card">
+			    <div class="card-header bg-secondary" id="headingOne">
+			      <h5 class="mb-0">
+			        <button class="btn btn-link" data-toggle="collapse" data-target="#collapseOne" aria-expanded="false" aria-controls="collapseOne">
+			          <b>Visualización de lista de proveedores</b>
+			        </button>
+			      </h5>
+			    </div>			
+			    <div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent="#accordion">
+			      <div class="card-body">
+			        En esta pantalla se puede apreciar la tabla con el listado de los proveedores creados hasta el momento
+			        con información como por ejemplo con el número de información tributaria, el número asignado a cada
+			        proveedor cuando este fue creado, el número de actividad económica y otros campos releventes.
+			      </div>
+			    </div>
+			  </div>
+			  <div class="card">
+			    <div class="card-header" id="headingTwo">
+			      <h5 class="mb-0">
+			        <button class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+			          <b>Búsqueda por razón social</b>
+			        </button>
+			      </h5>
+			    </div>
+			    <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordion">
+			      <div class="card-body">
+			        Con esta funcionalidad, se le brinda al usuario la posibilidad que con unas pocas palabras o con el 
+			        nombre exacto, pueda realizar un filtro dentro de la tabla y aparezcan solamente el que desea.
+			        Se puede buscar por una o varias letras clave que deben estar, dentro de la razón social del proveedor
+			        a buscar.
+			      </div>
+			    </div>
+			  </div>
+			  <div class="card">
+			    <div class="card-header bg-warning" id="headingThree">
+			      <h5 class="mb-0">
+			        <button class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+			          <b>Creación o edición de proveedores</b>
+			        </button>
+			      </h5>
+			    </div>
+			    <div id="collapseThree" class="collapse" aria-labelledby="headingThree" data-parent="#accordion">
+			      <div class="card-body">
+			        En cuanto a la creación de proveedores, se creó un formulario para que el usuario pueda generar un proveedor
+			        completamente nuevo con todos sus respectivos campos los cuales, están validados para que dentro de la 
+			        base de datos, se pueda crear sin ningún inconveniente. En cuanto la edición, se le brinda al usuario
+			        la posibilidad de editar a un proveedor creado previamente.
+			      </div>
+			    </div>
+			  </div>
+			</div>			
+			<!-- Termina el acordeón -->			
+		</div>	
+		
 	</section>
-	<div>
-		<input type="submit" class="btn btn-primary" value="Entrar"/>
-	</div>
+	<a class="btn btn-primary btn-lg btn-block" th:href="@{/provReembolsos/}"
+				th:text="'Click para continuar'" title="Lista de proveedores"></a>	
 
 </body>
 <footer th:replace="/plantilla :: footer ">	

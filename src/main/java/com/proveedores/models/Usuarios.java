@@ -30,7 +30,7 @@ public class Usuarios implements Serializable {
 	@NotNull
 	private String name;
 	@Column(unique=true)
-	@NotNull
+	@NotNull(message="El nombre es obligatorio")
 	@Email
 	private String email;
 	@NotNull

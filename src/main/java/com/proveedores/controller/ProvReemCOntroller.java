@@ -1,11 +1,17 @@
 package com.proveedores.controller;
 
+
+import java.io.IOException;
 import java.util.List;
 
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.core.io.ByteArrayResource;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
+import org.springframework.http.HttpHeaders;
+import org.springframework.http.MediaType;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
@@ -13,12 +19,13 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
+
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
+
 import com.proveedores.models.ProvReembolsos;
-import com.proveedores.repositories.ProvreembolsosRepository;
+import com.proveedores.services.ExcelService;
 import com.proveedores.services.IProvreembolsosService;
 
 import jakarta.validation.Valid;
@@ -29,6 +36,8 @@ public class ProvReemCOntroller {
 	
 	@Autowired
 	private IProvreembolsosService iprovreembolsoService;
+	@Autowired
+    private ExcelService excelService;
 	
 	
 	@GetMapping("/")
@@ -90,5 +99,25 @@ public class ProvReemCOntroller {
 				
 		return "provReembolsos/busquedas";
 	}
+	
+	@GetMapping("/listarProvReembolsos")
+    public ResponseEntity<ByteArrayResource> descargarExcel() throws IOException {
+        // Obtener la lista de proveedores desde el servicio
+        List<ProvReembolsos> listaProveedores = iprovreembolsoService.listarTodosProvReem();
+
+        // Generar el archivo Excel usando el servicio
+        byte[] datosExcel = excelService.generarExcelProveedores(listaProveedores);
+
+        // Configurar la respuesta con los datos del archivo Excel
+        ByteArrayResource resource = new ByteArrayResource(datosExcel);
+        HttpHeaders headers = new HttpHeaders();
+        headers.add(HttpHeaders.CONTENT_DISPOSITION, "attachment; filename=listado_prov.xlsx");
+        
+        return ResponseEntity.ok()
+                .headers(headers)
+                .contentLength(datosExcel.length)
+                .contentType(MediaType.parseMediaType("application/vnd.openxmlformats-officedocument.spreadsheetml.sheet"))
+                .body(resource);
+    }
 	
 }

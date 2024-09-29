@@ -17,6 +17,8 @@ import com.proveedores.models.Usuarios;
 import com.proveedores.repositories.UserRepository;
 import com.proveedores.services.IUsuarioService;
 
+import jakarta.servlet.http.HttpSession;
+
 
 
 @Controller
@@ -79,6 +81,12 @@ public class UserController {
 		usuarioServicio.eliminar(id_user);		
 		
 		return "redirect:/usuarios/";
+	}
+	
+	@GetMapping("/cerrar")
+	public String cerrarSesion(HttpSession session){
+		session.removeAttribute("id_user");		
+		return "redirect:/login";
 	}
 	
 	
